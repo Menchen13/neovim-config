@@ -9,3 +9,20 @@ return {
 
     }
 }
+
+--[[ example kit from my homePC
+[
+  {
+    "name": "GCC 11.2.0 x86_64-w64-mingw32",
+    "generator": "\"MinGW Makefiles\"",
+    "compilers": {
+      "C": "C:\\Users\\Menchen\\MinGW\\bin\\gcc.exe",
+      "CXX": "C:\\Users\\Menchen\\MinGW\\bin\\g++.exe"
+    },
+    "isTrusted": true,
+    "environmentVariables": {
+      "CMT_MINGW_PATH": "C:\\Users\\Menchen\\MinGW\\bin"
+    }
+
+  }
+] ]]
