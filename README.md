@@ -1,7 +1,7 @@
 Done with version v0.11.0-dev of neovim
 
-telescope needs ripgrep(rg.exe), which can easily be installed using chocolatey.
-Git for windows is also an obvious dependency and its tools(specificly diff) should be in the PATH.
+Telescope needs ripgrep(rg.exe), which can easily be installed using chocolatey.
+Git for Windows is also an obvious dependency and its tools(specifically diff) should be in the PATH.
 
 all of this needs to go into AppData\Local\nvim
 
