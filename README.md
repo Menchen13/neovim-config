@@ -7,7 +7,7 @@ all of this needs to go into AppData\Local\nvim
 
 
 Installed Plugins:
-+ saghen/blink.cmp
++ saghen/blink.cmp(uses a few thing under the hood ¯\_(ツ)_/¯)
 + folke/tokyonight.nvim
 + numToStr/Comment.nvim
 + tpope/vim-fugitive
@@ -17,6 +17,6 @@ Installed Plugins:
 + mbbill/undotree
 + williamboman/mason.nvim
 + neovim/nvim-lspconfig(the C/C++ lsp is clangd and it need to be be pointed to the g++ executable in the lsp.lua file)
-+ mason-lspconfig
++ williamboman/mason-lspconfig.nvim (list of available language-servers can be found here)
 + Civitasv/cmake-tools.nvim (Path to kit needs to be adjusted)
 + akinsho/toggleterm.nvim

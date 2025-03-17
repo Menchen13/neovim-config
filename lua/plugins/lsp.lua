@@ -62,7 +62,7 @@ return {
 
             require('mason-lspconfig').setup({
                 automatic_installation = false,
-                ensure_installed = {'lua_ls', 'clangd' },
+                ensure_installed = {'lua_ls', 'clangd', 'neocmake' },
                 handlers = {
                     -- this first function is the "default handler"
                     -- it applies to every language server without a "custom handler"
@@ -71,6 +71,7 @@ return {
                     --     require('lspconfig')[server_name].setup({ capabilities = capabilities })
                     -- end,
                     require('lspconfig').lua_ls.setup({capabilities = capabilities}), -- default for lua_ls
+                    require('lspconfig').neocmake.setup({capabilities = capabilities}), --default for neocmake
                     require('lspconfig').clangd.setup({
                         cmd = {
                             'clangd',

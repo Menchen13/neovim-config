@@ -1,5 +1,5 @@
 return {
-    'Civitasv/cmake-tools.nvim', ft = {'c', 'cpp', 'h', 'hpp', 'txt'} , opts = {
+    'Civitasv/cmake-tools.nvim', ft = {'c', 'cpp', 'h', 'hpp', 'cmake'} , opts = {
         cmake_kits_path = 'C:/Users/Menchen/OneDrive/Desktop/tmp/cmake-tools-kits.json', -- very important that the generator is in "": "\"MinGW Makefiles\""
         cmake_regenerate_on_save = false,
         cmake_build_directory = "build",
