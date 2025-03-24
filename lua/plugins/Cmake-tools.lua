@@ -1,5 +1,5 @@
 return {
-    'Civitasv/cmake-tools.nvim', ft = {'c', 'cpp', 'h', 'hpp', 'cmake'} , opts = {
+    'Civitasv/cmake-tools.nvim', lazy = true, ft = {'c', 'cpp', 'h', 'hpp', 'cmake'} , opts = {
         cmake_kits_path = 'C:/Users/Menchen/OneDrive/Desktop/tmp/cmake-tools-kits.json', -- very important that the generator is in "": "\"MinGW Makefiles\""
         cmake_regenerate_on_save = false,
         cmake_build_directory = "build",
@@ -7,7 +7,16 @@ return {
         cmake_executor = {name = 'toggleterm'},
         cmake_runner = {name = 'toggleterm'}
 
-    }
+    },
+    keys = {
+        {
+            "<leader>cb",
+            function()
+                vim.cmd("CMakeBuild")
+            end,
+            desc = "CMake Build",
+        },
+    },
 }
 
 --[[ example kit from my homePC
