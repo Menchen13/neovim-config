@@ -17,6 +17,13 @@ return {
             end,
             desc = "CMake Build",
         },
+        {
+            "<leader>cr",
+            function()
+                vim.cmd("CMakeRun")
+            end,
+            desc = "CMake Run",
+        },
     },
 }
 
