@@ -4,6 +4,10 @@ local builtin = require('telescope.builtin') -- local telescope-function-variabl
 require 'nvim-treesitter.install'.prefer_git = false
 require('lazy').setup({{'nvim-treesitter/nvim-treesitter', build = 'TSUpdate'}})
 
+-- disable netrw - WE USE OIL
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 --faster updates for everything
 vim.o.updatetime = 250
 
@@ -40,7 +44,7 @@ vim.opt.undofile = true
 vim.g.mapleader = ' '
 
 --<SPACE>fe opens the Explorer
-vim.keymap.set('n', '<leader>fe', vim.cmd.Explore)
+vim.keymap.set('n', '<leader>fe', ':Oil<CR>')
 
 --<SPACE>ü opens the vimrc file for editing
 vim.keymap.set('n', '<leader>ü', ':e $MYVIMRC<CR>', {noremap = true, silent = true})
