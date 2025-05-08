@@ -18,6 +18,13 @@ return {
             desc = "CMake Build",
         },
         {
+            "<leader>cg",
+            function()
+                vim.cmd("CMakeGenerate")
+            end,
+            desc = "CMake Generate",
+        },
+        {
             "<leader>cr",
             function()
                 vim.cmd("CMakeRun")
