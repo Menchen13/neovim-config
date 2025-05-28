@@ -21,3 +21,4 @@ Installed Plugins:
 + Civitasv/cmake-tools.nvim (Path to kit needs to be adjusted)
 + akinsho/toggleterm.nvim
 + nvim-lualine/lualine.nvim (For icons: "nerd-fonts-Hack" can be installed with choco and needs to be configured in terminal settings)
++ stevearc/oil.nvim
