@@ -7,12 +7,12 @@ return {
 
     {
         'neovim/nvim-lspconfig',
-        cmd = {'LspInfo', 'LspInstall', 'LspStart'},
-        event = {'BufReadPre', 'BufNewFile'},
+        cmd = { 'LspInfo', 'LspInstall', 'LspStart' },
+        event = { 'BufReadPre', 'BufNewFile' },
         dependencies = {
-            {'saghen/blink.cmp'},
-            {'williamboman/mason.nvim'},
-            {'williamboman/mason-lspconfig.nvim'},
+            { 'saghen/blink.cmp' },
+            { 'williamboman/mason.nvim' },
+            { 'williamboman/mason-lspconfig.nvim' },
         },
         init = function()
             -- Reserve a space in the gutter
@@ -20,8 +20,8 @@ return {
             vim.opt.signcolumn = 'yes'
         end,
         config = function()
-        --should be replaced with blink.cmp
-        --[[ local lsp_defaults = require('lspconfig').util.default_config
+            --should be replaced with blink.cmp
+            --[[ local lsp_defaults = require('lspconfig').util.default_config
 
         -- Add cmp_nvim_lsp capabilities settings to lspconfig
         -- This should be executed before you configure any language server
@@ -31,8 +31,8 @@ return {
         require('cmp_nvim_lsp').default_capabilities()
         ) ]]
             vim.diagnostic.config({
-                virtual_text = true,  -- Enable inline messages
-                signs = true,         -- Show signs in the gutter (left column)
+                virtual_text = true, -- Enable inline messages
+                signs = true,        -- Show signs in the gutter (left column)
                 update_in_insert = false,
                 severity_sort = true,
                 float = {
@@ -46,7 +46,7 @@ return {
             vim.api.nvim_create_autocmd('LspAttach', {
                 desc = 'LSP actions',
                 callback = function(event)
-                    local opts = {buffer = event.buf}
+                    local opts = { buffer = event.buf }
 
                     vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
                     vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
@@ -57,12 +57,17 @@ return {
                     vim.keymap.set('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
                     vim.keymap.set('n', 'grv', '<cmd>lua vim.lsp.buf.rename()<cr>', opts) -- rename variable
                     vim.keymap.set('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
+
+                    vim.keymap.set('n', '<leader>p', function()
+                        vim.lsp.buf.format({ async = true })
+                    end, opts)
                 end,
             })
 
             require('mason-lspconfig').setup({
+                automatic_enable = true,
                 automatic_installation = false,
-                ensure_installed = {'lua_ls', 'clangd', 'neocmake' },
+                ensure_installed = { 'lua_ls', 'clangd', 'neocmake' },
                 handlers = {
                     -- this first function is the "default handler"
                     -- it applies to every language server without a "custom handler"
@@ -70,8 +75,8 @@ return {
                     -- function(server_name)
                     --     require('lspconfig')[server_name].setup({ capabilities = capabilities })
                     -- end,
-                    require('lspconfig').lua_ls.setup({capabilities = capabilities}), -- default for lua_ls
-                    require('lspconfig').neocmake.setup({capabilities = capabilities}), --default for neocmake
+                    require('lspconfig').lua_ls.setup({ capabilities = capabilities }), -- default for lua_ls
+                    require('lspconfig').neocmake.setup({ capabilities = capabilities }), --default for neocmake
                     require('lspconfig').clangd.setup({
                         cmd = {
                             'clangd',

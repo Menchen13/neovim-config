@@ -2,7 +2,7 @@
 require('config.lazy')
 local builtin = require('telescope.builtin') -- local telescope-function-variable
 require 'nvim-treesitter.install'.prefer_git = false
-require('lazy').setup({{'nvim-treesitter/nvim-treesitter', build = 'TSUpdate'}})
+require('lazy').setup({ { 'nvim-treesitter/nvim-treesitter', build = 'TSUpdate' } })
 
 -- disable netrw - WE USE OIL
 vim.g.loaded_netrw = 1
@@ -47,10 +47,10 @@ vim.g.mapleader = ' '
 vim.keymap.set('n', '<leader>fe', ':Oil<CR>')
 
 --<SPACE>ü opens the vimrc file for editing
-vim.keymap.set('n', '<leader>ü', ':e $MYVIMRC<CR>', {noremap = true, silent = true})
+vim.keymap.set('n', '<leader>ü', ':e $MYVIMRC<CR>', { noremap = true, silent = true })
 
 --Tabmaps
-vim.keymap.set('n', '<C-t>', ':tabnew<CR>', {noremap = true, silent = true})
+vim.keymap.set('n', '<C-t>', ':tabnew<CR>', { noremap = true, silent = true })
 -- vim.keymap.set('n', '<C-T>', ':tabclose<CR>', {noremap = true, silent = true}) taken out :q to be used
 
 --telescope maps (this thing needs ripgrep, which can be installed which chocolatey)
@@ -59,14 +59,6 @@ vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find f
 vim.keymap.set('n', '<leader>fs', function() builtin.grep_string({ search = vim.fn.input('Grep > ') }); end)
 
 --undotree map(this thing needs diff, which comes with git-windwos, but needs to be in the PATH)
-vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle, {desc = 'Toggle Undotree'})
-
---format the entire file
-vim.keymap.set('n', '<leader>p', 'm`gg=G``', {noremap = true, silent = true})
-
---opens GitStatus menu 
-vim.keymap.set('n', '<leader>g', ':G<CR>', {noremap = true})
+vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle, { desc = 'Toggle Undotree' })
 
 --remaps
-
-
