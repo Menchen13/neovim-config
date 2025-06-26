@@ -67,7 +67,7 @@ return {
             require('mason-lspconfig').setup({
                 automatic_enable = true,
                 automatic_installation = false,
-                ensure_installed = { 'lua_ls', 'clangd', 'neocmake' },
+                ensure_installed = { 'lua_ls', 'clangd', 'neocmake', 'pylsp' },
                 handlers = {
                     -- this first function is the "default handler"
                     -- it applies to every language server without a "custom handler"
@@ -75,15 +75,14 @@ return {
                     -- function(server_name)
                     --     require('lspconfig')[server_name].setup({ capabilities = capabilities })
                     -- end,
-                    require('lspconfig').lua_ls.setup({ capabilities = capabilities }), -- default for lua_ls
+                    require('lspconfig').lua_ls.setup({ capabilities = capabilities }),   -- default for lua_ls
                     require('lspconfig').neocmake.setup({ capabilities = capabilities }), --default for neocmake
+                    require('lspconfig').pyright.setup {},
                     require('lspconfig').clangd.setup({
                         cmd = {
                             'clangd',
-                            '--query-driver=C:/Users/Menchen/MinGW/bin/g++.exe', -- which/where g++
                             '--background-index',
                             '--clang-tidy',
-                            '--compile-commands-dir=./build', -- looks for the compile-commands in the build dir, since i cant softlink em into current
                             '--completion-style=detailed',
                         }
                     })
