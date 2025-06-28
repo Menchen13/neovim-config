@@ -61,4 +61,10 @@ vim.keymap.set('n', '<leader>fs', function() builtin.grep_string({ search = vim.
 --undotree map(this thing needs diff, which comes with git-windwos, but needs to be in the PATH)
 vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle, { desc = 'Toggle Undotree' })
 
---remaps
+--Custom commands
+vim.api.nvim_create_user_command("TabWidth2", function()
+  vim.opt.tabstop = 2        -- Number of spaces a <Tab> in the file counts for
+  vim.opt.shiftwidth = 2     -- Number of spaces for each step of (auto)indent
+  vim.opt.expandtab = true   -- Use spaces instead of tabs
+  print("Tab width set to 2")
+end, {})
