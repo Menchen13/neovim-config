@@ -77,7 +77,7 @@ return {
                     -- end,
                     require('lspconfig').lua_ls.setup({ capabilities = capabilities }),   -- default for lua_ls
                     require('lspconfig').neocmake.setup({ capabilities = capabilities }), --default for neocmake
-                    require('lspconfig').pyright.setup { capabilities = capabilities }, --default for pyright
+                    require('lspconfig').pylsp.setup { capabilities = capabilities }, --default for pylsp
                     require('lspconfig').clangd.setup({
                         cmd = function ()
                             local cmd = {
