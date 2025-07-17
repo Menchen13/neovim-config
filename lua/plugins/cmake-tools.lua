@@ -2,16 +2,25 @@ return {
     'Civitasv/cmake-tools.nvim',
     lazy = true,
     ft = { 'c', 'cpp', 'h', 'hpp', 'cmake' },
-    opts = {
-        cmake_build_options = { "--parallel" },
-        cmake_kits_path = 'C:/Users/Menchen/OneDrive/Desktop/tmp/cmake-tools-kits.json', -- very important that the generator is in "": "\"MinGW Makefiles\""
-        cmake_regenerate_on_save = false,
-        cmake_build_directory = "build",
-        cmake_soft_link_compile_commands = false, -- doesnt work on windows, softlinks need admin for some reason. sourcing the file in clangd directly
-        cmake_executor = { name = 'toggleterm' },
-        cmake_runner = { name = 'toggleterm' }
+    opts = function()
+        local opts = {
+            cmake_build_options = { "--parallel" },
+            cmake_regenerate_on_save = false,
+            cmake_build_directory = "build",
+            cmake_executor = { name = 'toggleterm' },
+            cmake_runner = { name = 'toggleterm' },
+        }
 
-    },
+        if IS_WINDOWS then
+            opts.cmake_kits_path = 'C:/Users/Menchen/OneDrive/Desktop/tmp/cmake-tools-kits.json'
+            opts.cmake_soft_link_compile_commands = false
+        elseif IS_LINUX then
+            -- no kit path on linux, should be fine with everything being in PATH
+            opts.cmake_soft_link_compile_commands = true
+        end
+
+        return opts
+    end,
     keys = {
         {
             "<leader>cb",

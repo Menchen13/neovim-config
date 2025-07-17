@@ -77,14 +77,23 @@ return {
                     -- end,
                     require('lspconfig').lua_ls.setup({ capabilities = capabilities }),   -- default for lua_ls
                     require('lspconfig').neocmake.setup({ capabilities = capabilities }), --default for neocmake
-                    require('lspconfig').pyright.setup {},
+                    require('lspconfig').pyright.setup { capabilities = capabilities }, --default for pyright
                     require('lspconfig').clangd.setup({
-                        cmd = {
-                            'clangd',
-                            '--background-index',
-                            '--clang-tidy',
-                            '--completion-style=detailed',
-                        }
+                        cmd = function ()
+                            local cmd = {
+                                'clangd',
+                                '--background-index',
+                                '--clang-tidy',
+                                '--completion-style=detailed',
+                            }
+
+                            if IS_WINDOWS then
+                                table.insert(cmd, 'query-driver=C:/Users/Menchen/MinGW/bin/g++.exe') -- which/where g++
+                                table.insert(cmd, '--compile-commands-dir=./build') -- looks for the compile-commands in the build dir, since i cant softlink em into current
+                            end
+
+                            return cmd
+                        end
                     })
 
                 }

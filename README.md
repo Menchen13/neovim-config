@@ -1,9 +1,8 @@
 Done with version v0.11.0-dev of neovim
 
-Telescope needs ripgrep(rg.exe), which can easily be installed using chocolatey.
-Git for Windows is also an obvious dependency and its tools(specifically diff) should be in the PATH.
-
 all of this needs to go into AppData\Local\nvim or ~/.config/nvim/
+
+This should work out of on both windows and Linux with the correct configs being loaded based on the OS.
 
 Some Differences:
 + On Windows the compile-commands cant be symlinked without admin rights, which changes some things for lsp.lua and cmake-tools.lua
@@ -25,3 +24,8 @@ Installed Plugins:
 + akinsho/toggleterm.nvim
 + nvim-lualine/lualine.nvim (For icons: "nerd-fonts-Hack" can be installed with choco and needs to be configured in terminal settings)
 + stevearc/oil.nvim
+
+Dependencys:
++ Telescope needs ripgrep(rg.exe), which can easily be installed using chocolatey.
++ Git for Windows is also an obvious dependency and its tools(specifically diff) should be in the PATH.
++ nerd-font

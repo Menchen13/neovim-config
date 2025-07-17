@@ -1,4 +1,8 @@
 -- TODO: Debugging support
+-- Set global varibale to determine the OS
+_G.IS_LINUX = vim.loop.os_uname().sysname == "Windows_NT"
+_G.IS_WINDOWS = vim.loop.os_uname().sysname == "Windows_NT"
+
 require('config.lazy')
 local builtin = require('telescope.builtin') -- local telescope-function-variable
 require 'nvim-treesitter.install'.prefer_git = false
@@ -36,7 +40,7 @@ vim.opt.hlsearch = false
 
 --active persistent undotree to replace neovim backups
 vim.opt.backup = false
-vim.opt.undodir = os.getenv('HOME') .. '/.nvim/undodir' -- this is Windows specific! os.getenv('USERPROFILE) for linux.
+vim.opt.undodir = os.getenv('USERPROFILE') .. '/.nvim/undodir' -- this is Windows specific! os.getenv('HOME') for linux.
 vim.opt.undofile = true
 --remaps
 
