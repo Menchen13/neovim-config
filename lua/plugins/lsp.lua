@@ -40,6 +40,19 @@ return {
                 },
             })
             local capabilities = require('blink.cmp').get_lsp_capabilities()
+            -- Define clangd command conditionally
+            local cmd = {
+                'clangd',
+                '--background-index',
+                '--clang-tidy',
+                '--completion-style=detailed',
+            }
+
+            if IS_WINDOWS then
+                table.insert(cmd, '--query-driver=C:/Users/Menchen/MinGW/bin/g++.exe')
+                table.insert(cmd, '--compile-commands-dir=./build')
+            end
+
 
             -- LspAttach is where you enable features that only work
             -- if there is a language server active in the file
@@ -71,31 +84,18 @@ return {
                 handlers = {
                     -- this first function is the "default handler"
                     -- it applies to every language server without a "custom handler"
-
-                    -- function(server_name)
-                    --     require('lspconfig')[server_name].setup({ capabilities = capabilities })
-                    -- end,
+                    function(server_name)
+                        require('lspconfig')[server_name].setup({ capabilities = capabilities })
+                    end,
+                    -- override specific servers
+                    -- not sure why but the above format was fucking up the clangd lsp, so i am not using it for these
                     require('lspconfig').lua_ls.setup({ capabilities = capabilities }),   -- default for lua_ls
                     require('lspconfig').neocmake.setup({ capabilities = capabilities }), --default for neocmake
-                    require('lspconfig').pylsp.setup { capabilities = capabilities }, --default for pylsp
+                    require('lspconfig').pylsp.setup { capabilities = capabilities },     --default for pylsp
                     require('lspconfig').clangd.setup({
-                        cmd = function ()
-                            local cmd = {
-                                'clangd',
-                                '--background-index',
-                                '--clang-tidy',
-                                '--completion-style=detailed',
-                            }
-
-                            if IS_WINDOWS then
-                                table.insert(cmd, 'query-driver=C:/Users/Menchen/MinGW/bin/g++.exe') -- which/where g++
-                                table.insert(cmd, '--compile-commands-dir=./build') -- looks for the compile-commands in the build dir, since i cant softlink em into current
-                            end
-
-                            return cmd
-                        end
-                    })
-
+                        capabilities = capabilities,
+                        cmd = cmd
+                    }),
                 }
             })
         end
