@@ -57,7 +57,7 @@ vim.g.mapleader = ' '
 vim.keymap.set('n', '<leader>fe', ':Oil<CR>')
 
 --<SPACE>ü opens the vimrc file for editing
-vim.keymap.set('n', '<leader>p', ':e $MYVIMRC<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>o', ':e $MYVIMRC<CR>', { noremap = true, silent = true })
 
 --Tabmaps
 vim.keymap.set('n', '<C-t>', ':tabnew<CR>', { noremap = true, silent = true })
