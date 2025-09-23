@@ -85,14 +85,14 @@ return {
                     -- this first function is the "default handler"
                     -- it applies to every language server without a "custom handler"
                     function(server_name)
-                        require('lspconfig')[server_name].setup({ capabilities = capabilities })
+                        vim.lsp.config(server_name, { capabilities = capabilities })
                     end,
                     -- override specific servers
                     -- not sure why but the above format was fucking up the clangd lsp, so i am not using it for these
-                    require('lspconfig').lua_ls.setup({ capabilities = capabilities }),   -- default for lua_ls
-                    require('lspconfig').neocmake.setup({ capabilities = capabilities }), --default for neocmake
-                    require('lspconfig').pylsp.setup { capabilities = capabilities },     --default for pylsp
-                    require('lspconfig').clangd.setup({
+                    vim.lsp.config('lua_ls', { capabilities = capabilities }),   -- default for lua_ls
+                    vim.lsp.config('neocmake', { capabilities = capabilities }), --default for neocmake
+                    vim.lsp.config('pylsp', { capabilities = capabilities }),     --default for pylsp
+                    vim.lsp.config('clangd', {
                         capabilities = capabilities,
                         cmd = cmd
                     }),
