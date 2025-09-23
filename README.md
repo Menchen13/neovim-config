@@ -31,3 +31,7 @@ Dependencys:
 + nerd-font
 + python3 with venv module for pylsp
 + Perl for vimtex (on windows prolly strawbeery perl)
+
+Modular-Functionality:
+By editing the functionalities.lua file the config dynamicly install plugins/LSPs to provide the selected ones.
+This way the Config can be as minimalistic and lightweight as possible
