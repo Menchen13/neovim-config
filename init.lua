@@ -3,6 +3,8 @@
 _G.IS_LINUX = vim.loop.os_uname().sysname == "Linux"
 _G.IS_WINDOWS = vim.loop.os_uname().sysname == "Windows_NT"
 
+require('core.modules')
+-- print(vim.inspect(_G.Functionalities))       -- for debugging modules
 require('config.lazy')
 local builtin = require('telescope.builtin') -- local telescope-function-variable
 require 'nvim-treesitter.install'.prefer_git = false
@@ -42,7 +44,7 @@ vim.opt.hlsearch = false
 vim.opt.backup = false
 if IS_WINDOWS then
     vim.opt.undodir = os.getenv('USERPROFILE') ..
-    '/.nvim/undodir'
+        '/.nvim/undodir'
 elseif IS_LINUX then
     vim.opt.undodir = os.getenv('HOME') .. '/.local/share/nvim/undofile'
 end
@@ -73,8 +75,8 @@ vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle, { desc = 'Toggle Undotr
 
 --Custom commands
 vim.api.nvim_create_user_command("TabWidth2", function()
-    vim.opt.tabstop = 2    -- Number of spaces a <Tab> in the file counts for
-    vim.opt.shiftwidth = 2 -- Number of spaces for each step of (auto)indent
+    vim.opt.tabstop = 2      -- Number of spaces a <Tab> in the file counts for
+    vim.opt.shiftwidth = 2   -- Number of spaces for each step of (auto)indent
     vim.opt.expandtab = true -- Use spaces instead of tabs
     print("Tab width set to 2")
 end, {})

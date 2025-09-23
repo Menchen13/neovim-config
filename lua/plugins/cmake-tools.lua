@@ -1,3 +1,8 @@
+if not Functionalities.cpp then
+  return {}
+end
+
+
 return {
     'Civitasv/cmake-tools.nvim',
     lazy = true,

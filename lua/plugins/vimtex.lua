@@ -1,3 +1,7 @@
+if not Functionalities.latex then
+  return {}
+end
+
 vim.g.maplocalleader = " " -- to match the generall leader
 return {
     "lervag/vimtex",

@@ -77,10 +77,28 @@ return {
                 end,
             })
 
+            -- Build the Mason ensure_installed list dynamically
+            local ensure_installed = {}
+
+            -- Always install lua_ls
+            table.insert(ensure_installed, "lua_ls")
+
+            -- C/C++ functionality
+            if Functionalities.cpp then
+                table.insert(ensure_installed, "clangd")
+                table.insert(ensure_installed, "neocmake")
+            end
+
+            -- Python functionality
+            if Functionalities.python then
+                table.insert(ensure_installed, "pylsp")
+            end
+
+
             require('mason-lspconfig').setup({
                 automatic_enable = true,
                 automatic_installation = false,
-                ensure_installed = { 'lua_ls', 'clangd', 'neocmake', 'pylsp' },
+                ensure_installed = ensure_installed,
                 handlers = {
                     -- this first function is the "default handler"
                     -- it applies to every language server without a "custom handler"
@@ -91,7 +109,7 @@ return {
                     -- not sure why but the above format was fucking up the clangd lsp, so i am not using it for these
                     vim.lsp.config('lua_ls', { capabilities = capabilities }),   -- default for lua_ls
                     vim.lsp.config('neocmake', { capabilities = capabilities }), --default for neocmake
-                    vim.lsp.config('pylsp', { capabilities = capabilities }),     --default for pylsp
+                    vim.lsp.config('pylsp', { capabilities = capabilities }),    --default for pylsp
                     vim.lsp.config('clangd', {
                         capabilities = capabilities,
                         cmd = cmd

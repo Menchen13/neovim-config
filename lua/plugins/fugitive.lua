@@ -1,3 +1,7 @@
+if not Functionalities.git then
+  return {}
+end
+
 return {
     'tpope/vim-fugitive',
     keys = {
