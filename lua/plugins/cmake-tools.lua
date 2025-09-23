@@ -1,5 +1,5 @@
 if not Functionalities.cpp then
-  return {}
+    return {}
 end
 
 
@@ -9,19 +9,18 @@ return {
     ft = { 'c', 'cpp', 'h', 'hpp', 'cmake' },
     opts = function()
         local opts = {
-            cmake_build_options = { "--parallel" },
+            cmake_build_options = { '--parallel' },
             cmake_regenerate_on_save = false,
-            cmake_build_directory = "build",
             cmake_executor = { name = 'toggleterm' },
             cmake_runner = { name = 'toggleterm' },
         }
 
         if IS_WINDOWS then
             opts.cmake_kits_path = 'C:/Users/Menchen/OneDrive/Desktop/tmp/cmake-tools-kits.json'
-            opts.cmake_soft_link_compile_commands = false
+            opts.cmake_compile_commands_options = { action = "copy" }
         elseif IS_LINUX then
             -- no kit path on linux, should be fine with everything being in PATH
-            opts.cmake_soft_link_compile_commands = true
+            -- opts.cmake_soft_link_compile_commands = true
         end
 
         return opts

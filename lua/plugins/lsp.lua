@@ -50,7 +50,6 @@ return {
 
             if IS_WINDOWS then
                 table.insert(cmd, '--query-driver=C:/Users/Menchen/MinGW/bin/g++.exe')
-                table.insert(cmd, '--compile-commands-dir=./build')
             end
 
 
