@@ -47,6 +47,13 @@ return {
             end,
             desc = "CMake Run",
         },
+        {
+            "<leader>cs",
+            function ()
+                vim.cmd("CMakeSelectBuildType")
+            end
+
+        },
     },
 }
 
