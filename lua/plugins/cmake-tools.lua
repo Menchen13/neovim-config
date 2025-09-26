@@ -31,28 +31,36 @@ return {
             function()
                 vim.cmd("CMakeBuild")
             end,
-            desc = "CMake Build",
+            desc = "CMakeBuild",
         },
         {
             "<leader>cg",
             function()
                 vim.cmd("CMakeGenerate")
             end,
-            desc = "CMake Generate",
+            desc = "CMakeGenerate",
         },
         {
             "<leader>cr",
             function()
                 vim.cmd("CMakeRun")
             end,
-            desc = "CMake Run",
+            desc = "CMakeRun",
         },
         {
             "<leader>cs",
-            function ()
+            function()
                 vim.cmd("CMakeSelectBuildType")
-            end
+            end,
+            desc = "CMakeSelectBuildType",
 
+        },
+        {
+            "<leaders>ct",
+            function()
+                vim.cmd("CMakeRunTest")
+            end,
+            desc = "CMakeRunTest",
         },
     },
 }
