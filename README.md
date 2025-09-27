@@ -8,8 +8,12 @@ Some Differences:
 + On Windows the compile-commands cant be symlinked without admin rights, which changes some things for lsp.lua and cmake-tools.lua
 + There wont be any kit for linux so the path is taken out in cmake-tools.lua
 
+Modular-Functionality:
+By editing the functionalities.lua file the config dynamicly install plugins/LSPs to provide the selected ones.
+This way the Config can be as minimalistic and lightweight as possible
+
 Installed Plugins:
-+ saghen/blink.cmp(uses a few thing under the hood ¯\_(ツ)_/¯)
++ saghen/blink.cmp(uses a few thing under the hood)
 + folke/tokyonight.nvim
 + numToStr/Comment.nvim
 + tpope/vim-fugitive
@@ -32,6 +36,12 @@ Dependencys:
 + python3 with venv module for pylsp
 + Perl for vimtex (on windows prolly strawbeery perl)
 
-Modular-Functionality:
-By editing the functionalities.lua file the config dynamicly install plugins/LSPs to provide the selected ones.
-This way the Config can be as minimalistic and lightweight as possible
+Chocolatey quick install command for what is needed to run with functionalities cpp and git
+```powershell
+choco install conan --params "'/PathType:Machine'" -y; `
+choco install git.install --params "'/GitAndUnixToolsOnPath /WindowsTerminal'" -y; `
+choco install cmake luarocks mingw nerd-fonts-Hack ripgrep -y
+```
+
+
+
