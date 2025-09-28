@@ -10,17 +10,16 @@ return {
     opts = function()
         local opts = {
             cmake_build_options = { '--parallel' },
+            generate_options = { "-DCMAKE_EXPORT_COMPILE_COMMANDS=1", '-G "MinGW Makefiles"' },
             cmake_regenerate_on_save = false,
+            use_preset = false,
             cmake_executor = { name = 'toggleterm' },
             cmake_runner = { name = 'toggleterm' },
         }
 
+        -- Windows cant support the default softlink option so copy is used
         if IS_WINDOWS then
-            opts.cmake_kits_path = 'C:/Users/Menchen/OneDrive/Desktop/tmp/cmake-tools-kits.json'
             opts.cmake_compile_commands_options = { action = "copy" }
-        elseif IS_LINUX then
-            -- no kit path on linux, should be fine with everything being in PATH
-            -- opts.cmake_soft_link_compile_commands = true
         end
 
         return opts
