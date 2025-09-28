@@ -56,7 +56,7 @@ return {
 
         },
         {
-            "<leaders>ct",
+            "<leader>ct",
             function()
                 vim.cmd("CMakeRunTest")
             end,
