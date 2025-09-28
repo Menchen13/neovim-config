@@ -39,7 +39,7 @@ Dependencys:
 Chocolatey quick install command for what is needed to run with functionalities cpp and git
 ```powershell
 choco install conan --params "'/PathType:Machine'" -y; `
-choco install git.install --params "'/GitAndUnixToolsOnPath /WindowsTerminal'" -y; `
+choco install git.install --params "'/GitAndUnixToolsOnPath /WindowsTerminal /NoOpenSSH'" -y; `
 choco install cmake luarocks mingw nerd-fonts-Hack ripgrep -y
 ```
 
