@@ -49,8 +49,8 @@ return {
             }
 
             if IS_WINDOWS then
-                table.insert(cmd, '--query-driver=C:/Users/Menchen/MinGW/bin/g++.exe')
-                table.insert(cmd, '--query-driver=C:/Users/Menchen/MinGW/bin/gcc.exe')
+                -- where gcc shows the path
+                table.insert(cmd, '--query-driver=C:/ProgramData/mingw64/mingw64/bin/*')
             end
 
 

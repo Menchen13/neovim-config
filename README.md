@@ -22,7 +22,7 @@ Installed Plugins:
 + nvim-treesitter/nvim-treesitter
 + mbbill/undotree
 + williamboman/mason.nvim
-+ neovim/nvim-lspconfig(the C/C++ lsp is clangd and, on windows, it need to be be pointed to the g++ executable in the lsp.lua file)
++ neovim/nvim-lspconfig(the C/C++ lsp is clangd and, on windows, it need to be be pointed to the g++ directory in the lsp.lua file)
 + williamboman/mason-lspconfig.nvim (list of available language-servers can be found here)
 + Civitasv/cmake-tools.nvim (Path to kit needs to be adjusted)
 + akinsho/toggleterm.nvim
