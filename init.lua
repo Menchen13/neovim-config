@@ -9,6 +9,7 @@ require('config.lazy')
 local builtin = require('telescope.builtin') -- local telescope-function-variable
 require 'nvim-treesitter.install'.prefer_git = false
 require('lazy').setup({ { 'nvim-treesitter/nvim-treesitter', build = 'TSUpdate' } })
+require('core.conan')
 
 -- disable netrw - WE USE OIL
 vim.g.loaded_netrw = 1

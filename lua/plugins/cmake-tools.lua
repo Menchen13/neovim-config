@@ -12,7 +12,6 @@ return {
             cmake_build_options = { '--parallel' },
             generate_options = { "-DCMAKE_EXPORT_COMPILE_COMMANDS=1", '-G "MinGW Makefiles"' },
             cmake_regenerate_on_save = false,
-            use_preset = false,
             cmake_executor = { name = 'toggleterm' },
             cmake_runner = { name = 'toggleterm' },
         }
