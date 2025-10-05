@@ -68,8 +68,30 @@ vim.keymap.set('n', '<C-t>', ':tabnew<CR>', { noremap = true, silent = true })
 
 --telescope maps (this thing needs ripgrep, which can be installed which chocolatey)
 vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
---current directory grep-search
-vim.keymap.set('n', '<leader>fs', function() builtin.grep_string({ search = vim.fn.input('Grep > ') }); end)
+-- Grep across the whole repo (cwd), case-insensitive, regex enabled
+
+-- Literal search (case-insensitive, no regex)
+vim.keymap.set("n", "<leader>fs", function()
+  local search = vim.fn.input("Literal Grep > ")
+  if search == "" then return end
+
+  builtin.grep_string({
+    search = search,
+    additional_args = function(_) return { "--ignore-case", "--fixed-strings" } end,
+  })
+end, { desc = "Literal grep (case-insensitive)" })
+
+-- Regex search (case-insensitive)
+vim.keymap.set("n", "<leader>fS", function()
+  local search = vim.fn.input("Regex Grep > ")
+  if search == "" then return end
+
+  builtin.grep_string({
+    search = search,
+    use_regex = true,
+    additional_args = function(_) return { "--ignore-case" } end,
+  })
+end, { desc = "Regex grep (case-insensitive)" })
 
 --undotree map(this thing needs diff, which comes with git-windwos, but needs to be in the PATH)
 vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle, { desc = 'Toggle Undotree' })
