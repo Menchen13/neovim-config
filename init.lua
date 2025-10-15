@@ -31,10 +31,10 @@ vim.opt.scrolloff = 8
 vim.opt.wrap = false
 
 --tab should be 4 spaces and no more!
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
-vim.opt.softtabstop = 4
+vim.opt.softtabstop = 2
 vim.opt.smartindent = true
 
 --no highlights after searching
@@ -97,9 +97,9 @@ end, { desc = "Regex grep (case-insensitive)" })
 vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle, { desc = 'Toggle Undotree' })
 
 --Custom commands
-vim.api.nvim_create_user_command("TabWidth2", function()
-    vim.opt.tabstop = 2      -- Number of spaces a <Tab> in the file counts for
-    vim.opt.shiftwidth = 2   -- Number of spaces for each step of (auto)indent
+vim.api.nvim_create_user_command("TabWidth4", function()
+    vim.opt.tabstop = 4      -- Number of spaces a <Tab> in the file counts for
+    vim.opt.shiftwidth = 4   -- Number of spaces for each step of (auto)indent
     vim.opt.expandtab = true -- Use spaces instead of tabs
-    print("Tab width set to 2")
+    print("Tab width set to 4")
 end, {})
