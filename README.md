@@ -6,7 +6,6 @@ This should work out of on both windows and Linux with the correct configs being
 
 Some Differences:
 + On Windows the compile-commands cant be symlinked without admin rights, which changes some things for lsp.lua and cmake-tools.lua
-+ There wont be any kit for linux so the path is taken out in cmake-tools.lua
 
 Modular-Functionality:
 By editing the functionalities.lua file the config dynamicly install plugins/LSPs to provide the selected ones.
@@ -24,7 +23,7 @@ Installed Plugins:
 + williamboman/mason.nvim
 + neovim/nvim-lspconfig(the C/C++ lsp is clangd and, on windows, it need to be be pointed to the g++ directory in the lsp.lua file)
 + williamboman/mason-lspconfig.nvim (list of available language-servers can be found here)
-+ Civitasv/cmake-tools.nvim (Path to kit needs to be adjusted)
++ Civitasv/cmake-tools.nvim
 + akinsho/toggleterm.nvim
 + nvim-lualine/lualine.nvim (For icons: "nerd-fonts-Hack" can be installed with choco and needs to be configured in terminal settings)
 + stevearc/oil.nvim
@@ -40,7 +39,7 @@ Chocolatey quick install command for what is needed to run with functionalities 
 ```powershell
 choco install conan --params "'/PathType:Machine'" -y; `
 choco install git.install --params "'/GitAndUnixToolsOnPath /WindowsTerminal /NoOpenSSH'" -y; `
-choco install cmake luarocks mingw nerd-fonts-Hack ripgrep -y
+choco install cmake ninja luarocks mingw nerd-fonts-Hack ripgrep -y
 ```
 
 

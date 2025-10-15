@@ -10,7 +10,7 @@ return {
     opts = function()
         local opts = {
             cmake_build_options = { '--parallel' },
-            generate_options = { "-DCMAKE_EXPORT_COMPILE_COMMANDS=1", '-G "MinGW Makefiles"' },
+            cmake_generate_options = { "-GNinja", "-DCMAKE_EXPORT_COMPILE_COMMANDS=1" },
             cmake_regenerate_on_save = false,
             cmake_executor = { name = 'toggleterm' },
             cmake_runner = { name = 'toggleterm' },
