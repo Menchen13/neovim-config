@@ -25,6 +25,13 @@ return {
     end,
     keys = {
         {
+            "<leader>cB",
+            function()
+                vim.cmd("CMakeSelectBuildTarget")
+            end,
+            desc = "Select CMakeBuild Target",
+        },
+        {
             "<leader>cb",
             function()
                 vim.cmd("CMakeBuild")
@@ -37,6 +44,13 @@ return {
                 vim.cmd("CMakeGenerate")
             end,
             desc = "CMakeGenerate",
+        },
+        {
+            "<leader>cR",
+            function()
+                vim.cmd("CMakeSelectLaunchTarget")
+            end,
+            desc = "Select CMakeRun Target",
         },
         {
             "<leader>cr",
