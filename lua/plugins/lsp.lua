@@ -48,11 +48,6 @@ return {
                 '--completion-style=detailed',
             }
 
-            if IS_WINDOWS then
-                -- where gcc shows the path
-                table.insert(cmd, '--query-driver=C:/ProgramData/mingw64/mingw64/bin/*')
-            end
-
 
             -- LspAttach is where you enable features that only work
             -- if there is a language server active in the file
