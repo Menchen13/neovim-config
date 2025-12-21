@@ -21,6 +21,12 @@ vim.o.updatetime = 250
 --better color, better life
 vim.opt.termguicolors = true
 
+vim.api.nvim_set_hl(0, "LspInlayHint", {
+  fg = "#bb9af7", -- The Magenta/Purple
+  bg = "#292e42", -- The "Pill" background
+  italic = true,  -- Makes metadata look distinct
+})
+
 --activate linenumbers
 vim.opt.nu = true
 
@@ -44,10 +50,10 @@ vim.opt.hlsearch = false
 --active persistent undotree to replace neovim backups
 vim.opt.backup = false
 if IS_WINDOWS then
-    vim.opt.undodir = os.getenv('USERPROFILE') ..
-        '/.nvim/undodir'
+  vim.opt.undodir = os.getenv('USERPROFILE') ..
+      '/.nvim/undodir'
 elseif IS_LINUX then
-    vim.opt.undodir = os.getenv('HOME') .. '/.local/share/nvim/undofile'
+  vim.opt.undodir = os.getenv('HOME') .. '/.local/share/nvim/undofile'
 end
 
 vim.opt.undofile = true
@@ -98,8 +104,8 @@ vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle, { desc = 'Toggle Undotr
 
 --Custom commands
 vim.api.nvim_create_user_command("TabWidth4", function()
-    vim.opt.tabstop = 4      -- Number of spaces a <Tab> in the file counts for
-    vim.opt.shiftwidth = 4   -- Number of spaces for each step of (auto)indent
-    vim.opt.expandtab = true -- Use spaces instead of tabs
-    print("Tab width set to 4")
+  vim.opt.tabstop = 4      -- Number of spaces a <Tab> in the file counts for
+  vim.opt.shiftwidth = 4   -- Number of spaces for each step of (auto)indent
+  vim.opt.expandtab = true -- Use spaces instead of tabs
+  print("Tab width set to 4")
 end, {})

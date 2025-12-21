@@ -9,7 +9,6 @@ return {
   ft = { 'c', 'cpp', 'h', 'hpp', 'cmake' },
   opts = function()
     local opts = {
-      cmake_build_options = { '--parallel' },
       cmake_generate_options = { "-GNinja", "-DCMAKE_EXPORT_COMPILE_COMMANDS=1" },
       cmake_regenerate_on_save = false,
       cmake_executor = { name = 'toggleterm' },
@@ -19,6 +18,8 @@ return {
     -- Windows cant support the default softlink option so copy is used
     if IS_WINDOWS then
       opts.cmake_compile_commands_options = { action = "copy" }
+      table.insert(opts.cmake_generate_options, "-DCMAKE_C_COMPILER=clang-cl")
+      table.insert(opts.cmake_generate_options, "-DCMAKE_CXX_COMPILER=clang-cl")
     end
 
     return opts
@@ -83,20 +84,3 @@ return {
     },
   },
 }
-
---[[ example kit from my homePC
-[
-  {
-    "name": "GCC 11.2.0 x86_64-w64-mingw32",
-    "generator": "\"MinGW Makefiles\"",
-    "compilers": {
-      "C": "C:\\Users\\Menchen\\MinGW\\bin\\gcc.exe",
-      "CXX": "C:\\Users\\Menchen\\MinGW\\bin\\g++.exe"
-    },
-    "isTrusted": true,
-    "environmentVariables": {
-      "CMT_MINGW_PATH": "C:\\Users\\Menchen\\MinGW\\bin"
-    }
-
-  }
-] ]]
