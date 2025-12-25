@@ -74,6 +74,9 @@ return {
       -- C/C++ functionality
       if Functionalities.cpp then
         table.insert(ensure_installed, "neocmake")
+        if IS_LINUX then
+          table.insert(ensure_installed, "clangd")
+        end
       end
 
       -- Python functionality
@@ -93,7 +96,7 @@ return {
           vim.lsp.config('pylsp', { capabilities = capabilities }),    --default for pylsp
         }
       })
-      -- clangd goes here as it is not managed by mason
+      -- clangd goes here as it is not neccessarly managed by mason
       vim.lsp.config('clangd', {
         capabilities = capabilities,
         cmd = cmd
