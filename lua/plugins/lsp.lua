@@ -44,9 +44,14 @@ return {
         callback = function(event)
           local opts = { buffer = event.buf }
 
+          -- Toggle inlay hints
           vim.keymap.set('n', '<leader>th', function()
-            vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }), { bufnr = event.buf })
-          end, { desc = 'Toggle Inlay Hints' })
+            local enabled = vim.lsp.inlay_hint.is_enabled({ bufnr = 0 })
+            vim.lsp.inlay_hint.enable(not enabled, { bufnr = 0 })
+          end, {
+            buffer = opts.buffer,
+            desc = 'Toggle Inlay Hints',
+          })
 
           vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
           vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
