@@ -6,7 +6,7 @@ local M = {
     config = function()
         local configs = require('nvim-treesitter.configs')
         configs.setup({
-            ensure_installed = { 'c', 'cpp', 'cmake', 'lua', 'markdown', 'python' },
+            ensure_installed = { 'c', 'cpp', 'cmake', 'lua', 'markdown', 'python', 'rust' },
             ignore_install = { 'latex' },
             sync_install = false,
             auto_install = false,
