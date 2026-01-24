@@ -5,7 +5,7 @@ local config_path = fn.stdpath("config") .. "/lua/functionalities.lua"
 if fn.filereadable(config_path) == 0 then
   local default_content = [[
 -- List of enabled functionalities
--- All functionalities are: cpp, python, latex, git
+-- All functionalities are: cpp, python, latex, git, rust
 -- Example: return { "cpp", "python", "latex" }
 return { "cpp" }
 ]]
