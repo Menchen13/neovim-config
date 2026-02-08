@@ -62,6 +62,9 @@ vim.opt.undofile = true
 --sets <SPACE> as mapleader(<leader>)
 vim.g.mapleader = ' '
 
+--<SPACE>e opens floating window with full error
+vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = "Show full diagnostic message" })
+
 --<SPACE>fe opens the Explorer
 vim.keymap.set('n', '<leader>fe', ':Oil<CR>')
 
