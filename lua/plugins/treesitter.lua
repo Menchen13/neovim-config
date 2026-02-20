@@ -4,7 +4,7 @@ local M = {
     require('nvim-treesitter.install').update({ with_sync = true })()
   end,
   config = function()
-    local configs = require('nvim-treesitter.configs')
+    local configs = require('nvim-treesitter.config')
     local list = { 'lua', 'markdown' }
     if Functionalities.cpp then
       table.insert(list, 'c')
