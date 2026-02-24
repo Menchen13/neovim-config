@@ -6,7 +6,6 @@ _G.IS_WINDOWS = vim.loop.os_uname().sysname == "Windows_NT"
 require('core.modules')
 -- print(vim.inspect(_G.Functionalities))       -- for debugging modules
 require('config.lazy')
-local builtin = require('telescope.builtin') -- local telescope-function-variable
 require 'nvim-treesitter.install'.prefer_git = false
 require('lazy').setup({ { 'nvim-treesitter/nvim-treesitter', build = 'TSUpdate' } })
 require('core.conan')
@@ -75,32 +74,15 @@ vim.keymap.set('n', '<leader>o', ':e $MYVIMRC<CR>', { noremap = true, silent = t
 vim.keymap.set('n', '<C-t>', ':tabnew<CR>', { noremap = true, silent = true })
 -- vim.keymap.set('n', '<C-T>', ':tabclose<CR>', {noremap = true, silent = true}) taken out :q to be used
 
---telescope maps (this thing needs ripgrep, which can be installed which chocolatey)
-vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
--- Grep across the whole repo (cwd), case-insensitive, regex enabled
+local fzf = require('fzf-lua')
+-- find in files
+vim.keymap.set('n', '<leader>ff', fzf.files, { desc = 'Fzf find files' })
 
--- Literal search (case-insensitive, no regex)
-vim.keymap.set("n", "<leader>fs", function()
-  local search = vim.fn.input("Literal Grep > ")
-  if search == "" then return end
+-- Search in Files
+vim.keymap.set('n', '<leader>fs', fzf.live_grep, { desc = 'Fzf Live Grep (Literal or Regex)' })
 
-  builtin.grep_string({
-    search = search,
-    additional_args = function(_) return { "--ignore-case", "--fixed-strings" } end,
-  })
-end, { desc = "Literal grep (case-insensitive)" })
-
--- Regex search (case-insensitive)
-vim.keymap.set("n", "<leader>fS", function()
-  local search = vim.fn.input("Regex Grep > ")
-  if search == "" then return end
-
-  builtin.grep_string({
-    search = search,
-    use_regex = true,
-    additional_args = function(_) return { "--ignore-case" } end,
-  })
-end, { desc = "Regex grep (case-insensitive)" })
+-- Grep for the word currently under your cursor (Very handy)
+vim.keymap.set('n', '<leader>fw', fzf.grep_cword, { desc = 'Grep word under cursor' })
 
 --undotree map(this thing needs diff, which comes with git-windwos, but needs to be in the PATH)
 vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle, { desc = 'Toggle Undotree' })

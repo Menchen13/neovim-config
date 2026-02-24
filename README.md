@@ -17,7 +17,7 @@ Installed Plugins:
 + numToStr/Comment.nvim
 + tpope/vim-fugitive
 + folke/lazydev.nvim
-+ nvim-telescope/telescope.nvim
++ ibhagwan/fzf-lua
 + nvim-treesitter/nvim-treesitter
 + mbbill/undotree
 + williamboman/mason.nvim
@@ -29,7 +29,7 @@ Installed Plugins:
 + stevearc/oil.nvim
 
 Dependencys:
-+ Telescope needs ripgrep(rg.exe), which can easily be installed using chocolatey.
++ rg, fd, fzf for fzf-lua
 + Git for Windows is also an obvious dependency and its tools(specifically diff) should be in the PATH.
 + nerd-font
 + python3 with venv module for pylsp
@@ -39,7 +39,7 @@ Chocolatey quick install command for what is needed to run with functionalities 
 ```powershell
 choco install conan --params "'/PathType:Machine'" -y; `
 choco install git.install --params "'/GitAndUnixToolsOnPath /WindowsTerminal /NoOpenSSH'" -y; `
-choco install cmake ninja luarocks mingw nerd-fonts-Hack ripgrep -y
+choco install cmake ninja luarocks mingw nerd-fonts-Hack ripgrep fzf fd -y
 ```
 
 
