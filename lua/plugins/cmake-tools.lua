@@ -5,10 +5,12 @@ end
 
 return {
   'Civitasv/cmake-tools.nvim',
+  dependencies = 'nvim-lua/plenary.nvim',
   lazy = true,
   ft = { 'c', 'cpp', 'h', 'hpp', 'cmake' },
   opts = function()
     local opts = {
+      cmake_command = "C:/Users/Menchen/code/cmake-debbug.cmd",
       cmake_generate_options = { "-GNinja", "-DCMAKE_EXPORT_COMPILE_COMMANDS=1" },
       cmake_regenerate_on_save = false,
       cmake_executor = { name = 'toggleterm' },
