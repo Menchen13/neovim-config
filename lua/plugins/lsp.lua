@@ -34,6 +34,7 @@ return {
       local cmd = {
         'clangd',
         '--completion-style=detailed',
+        '--experimental-modules-support'
       }
 
 
