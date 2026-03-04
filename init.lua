@@ -87,6 +87,8 @@ vim.keymap.set('n', '<leader>fw', fzf.grep_cword, { desc = 'Grep word under curs
 --undotree map(this thing needs diff, which comes with git-windwos, but needs to be in the PATH)
 vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle, { desc = 'Toggle Undotree' })
 
+--quick vsplit keybind
+vim.keymap.set('n', '<leader>v', ':vsplit | wincmd l<CR>', { desc = 'Vertical split and focus' })
 --Custom commands
 vim.api.nvim_create_user_command("TabWidth4", function()
   vim.opt.tabstop = 4      -- Number of spaces a <Tab> in the file counts for
