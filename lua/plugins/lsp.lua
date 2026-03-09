@@ -80,9 +80,6 @@ return {
       -- C/C++ functionality
       if Functionalities.cpp then
         table.insert(ensure_installed, "neocmake")
-        if IS_LINUX then
-          table.insert(ensure_installed, "clangd")
-        end
       end
 
       -- Python functionality
