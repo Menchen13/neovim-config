@@ -9,6 +9,7 @@ local M = {
     if Functionalities.cpp then
       table.insert(list, 'c')
       table.insert(list, 'cpp')
+      table.insert(list, 'doxygen')
       table.insert(list, 'cmake')
     end
 
