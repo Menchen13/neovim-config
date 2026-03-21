@@ -33,6 +33,7 @@ Dependencys:
 + Git for Windows is also an obvious dependency and its tools(specifically diff) should be in the PATH.
 + nerd-font
 + python3 with venv module for pylsp
++ tree-sitter-cli (could be managed by Mason i think)
 + Perl for vimtex (on windows prolly strawbeery perl)
 
 Chocolatey quick install command for what is needed to run with functionalities cpp and git
