@@ -87,6 +87,11 @@ return {
         table.insert(ensure_installed, "pylsp")
       end
 
+      --Typst functionality
+      if Functionalities.typst then
+        table.insert(ensure_installed, 'tinymist')
+      end
+
 
       require('mason-lspconfig').setup({
         automatic_enable = true,
@@ -97,6 +102,7 @@ return {
           vim.lsp.config('lua_ls', { capabilities = capabilities }),   -- default for lua_ls
           vim.lsp.config('neocmake', { capabilities = capabilities }), --default for neocmake
           vim.lsp.config('pylsp', { capabilities = capabilities }),    --default for pylsp
+          vim.lsp.config('tinymist', { capabilities = capabilities })
         }
       })
       -- clangd goes here as it is not neccessarly managed by mason

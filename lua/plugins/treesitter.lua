@@ -20,6 +20,10 @@ local M = {
       table.insert(list, 'rust')
     end
 
+    if Functionalities.typst then
+      table.insert(list, 'typst')
+    end
+
     ts.install(list)
     vim.api.nvim_create_autocmd('FileType', {
       pattern = list,
