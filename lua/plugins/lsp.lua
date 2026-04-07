@@ -76,6 +76,7 @@ return {
 
       -- Always install lua_ls
       table.insert(ensure_installed, "lua_ls")
+      table.insert(ensure_installed, "tree-sitter-cli")
 
       -- C/C++ functionality
       if Functionalities.cpp then
