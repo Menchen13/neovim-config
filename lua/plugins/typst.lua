@@ -3,7 +3,9 @@ if not Functionalities.typst then
 end
 
 local tinymistBinary = vim.fn.stdpath 'data' .. '/mason/bin/tinymist'
-    tinymistBinary = tinymistBinary .. '.cmd'
+if _G.IS_WINDOWS then
+  tinymistBinary = tinymistBinary .. '.cmd'
+end
 
 return {
   'chomosuke/typst-preview.nvim',
